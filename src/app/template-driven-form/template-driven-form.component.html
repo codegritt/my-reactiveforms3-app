@@ -13,7 +13,7 @@
                             <input type="text" class="form-control" [(ngModel)]="userModal.name" name="name"
                                 #name="ngModel" required>
                             <span class="text-danger"
-                                *ngIf="(name.touched || registerForm.submitted) && name.errors?.required">
+                                *ngIf="(name.touched || name.dirty|| registerForm.submitted) && name.errors?.required">
                                 Name is required
                             </span>
                         </div>
@@ -22,7 +22,7 @@
                             <input type="text" class="form-control" [(ngModel)]="userModal.email" name="email"
                                 #email="ngModel" required email>
                             <span class="text-danger"
-                                *ngIf="(email.touched || registerForm.submitted) && email.errors?.required">
+                                *ngIf="(email.touched || email.dirty || registerForm.submitted) && email.errors?.required">
                                 Email is required
                             </span>
                             <span class="text-danger" *ngIf="email.touched && email.errors?.email">
@@ -34,7 +34,7 @@
                             <input type="text" class="form-control" [(ngModel)]="userModal.username" name="username"
                                 #username="ngModel" appValidateUserName required>
                             <span class="text-danger"
-                                *ngIf="(username.touched || registerForm.submitted) && username.errors?.required">
+                                *ngIf="(username.touched ||username.dirty || registerForm.submitted) && username.errors?.required">
                                 User Name is required
                             </span>
                             <span class="text-danger" *ngIf="username.touched && username.errors?.userNameNotAvailable">
@@ -46,7 +46,7 @@
                             <input type="password" class="form-control" [(ngModel)]="userModal.password" name="password"
                                 #password="ngModel" appPasswordPattern required>
                             <span class="text-danger"
-                                *ngIf="(password.touched || registerForm.submitted) && password.errors?.required">
+                                *ngIf="(password.touched||password.dirty || registerForm.submitted) && password.errors?.required">
                                 Password is required
                             </span>
                             <span class="text-danger" *ngIf="password.touched && password.errors?.invalidPassword">
@@ -59,7 +59,7 @@
                             <input type="password" class="form-control" [(ngModel)]="userModal.confirmPassword"
                                 name="confirmPassword" #confirmPassword="ngModel" required>
                             <span class="text-danger"
-                                *ngIf="(confirmPassword.touched || registerForm.submitted) && confirmPassword.errors?.required">
+                                *ngIf="(confirmPassword.touched||confirmPassword.dirty || registerForm.submitted) && confirmPassword.errors?.required">
                                 Confirm Password is required
                             </span>
                             <span class="text-danger"
